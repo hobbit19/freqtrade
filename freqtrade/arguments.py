@@ -6,8 +6,8 @@ import argparse
 import logging
 import os
 import re
-import arrow
 from typing import List, Tuple, Optional
+import arrow
 
 from freqtrade import __version__, constants
 
@@ -124,8 +124,8 @@ class Arguments(object):
         )
         parser.add_argument(
             '-r', '--refresh-pairs-cached',
-            help='refresh the pairs files in tests/testdata with the latest data from the exchange. \
-                  Use it if you want to run your backtesting with up-to-date data.',
+            help='refresh the pairs files in tests/testdata with the latest data from the '
+                 'exchange. Use it if you want to run your backtesting with up-to-date data.',
             action='store_true',
             dest='refresh_pairs',
         )
@@ -140,6 +140,11 @@ class Arguments(object):
 
     @staticmethod
     def optimizer_shared_options(parser: argparse.ArgumentParser) -> None:
+        """
+        Parses given common arguments for Backtesting and Hyperopt scripts.
+        :param parser:
+        :return:
+        """
         parser.add_argument(
             '-i', '--ticker-interval',
             help='specify ticker interval (1m, 5m, 30m, 1h, 1d)',
